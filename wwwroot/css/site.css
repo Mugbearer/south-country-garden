@@ -1,18 +1,13 @@
-html {
-  font-size: 14px;
+.scg-logo {
+    width: 140px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.purple {
+    color: #48487f;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
+.hr-updates {
+    border: 1px solid black;
+    margin: 0 auto 16px;
+    width: 50px;
 }
