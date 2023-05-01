@@ -1,6 +1,9 @@
 body {
     color: #202124;
     line-height: 1.5em;
+}
+
+main {
     min-height: 100vh;
 }
 
@@ -32,4 +35,6 @@ nav {
 
 .booking-bg {
     background-image: url(../images/booking-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
