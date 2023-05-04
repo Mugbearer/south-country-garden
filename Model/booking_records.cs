@@ -10,11 +10,13 @@ namespace south_country_garden.Model
         [Required]
         public string name { get; set; }
 
+        [Phone(ErrorMessage = "Please enter a valid contact number")]
         [Required]
         public int contact_number { get; set; }
 
         public string address { get; set; }
 
+        [EmailAddress(ErrorMessage = "Please enter a valid email address")]
         [Required]
         public string email { get; set; }
 
@@ -30,6 +32,7 @@ namespace south_country_garden.Model
 
         public string time_preparation { get; set; }
 
+        [Range(1, 400, ErrorMessage = "Please enter 1-300")]
         public string pax_number { get; set; }
 
         public string additional_message { get; set; }
