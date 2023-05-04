@@ -4,7 +4,8 @@ namespace south_country_garden.Model
 {
     public class event_inclusions
     {
-        public int booking_id { get; set; }
+        [Key]
+        public booking_records booking_records { get; set; }
 
         [MaxLength(255)]
         public string event_coordination { get; set; }
