@@ -7,7 +7,7 @@ namespace south_country_garden.Model
         [Key]
         public int id { get; set; }
 
-        public booking_records booking_records { get; set; }
+        public booking_records booking_ { get; set; }
 
         [MaxLength(255)]
         public string remarks { get; set; }

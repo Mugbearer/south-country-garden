@@ -5,7 +5,9 @@ namespace south_country_garden.Model
     public class event_details
     {
         [Key]
-        public booking_records booking_records { get; set; }
+        public int id { get; set; }
+
+        public booking_records booking_ { get; set; }
 
         [MaxLength(50)]
         public string event_title { get; set; }

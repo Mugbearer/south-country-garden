@@ -5,7 +5,9 @@ namespace south_country_garden.Model
     public class food_arrangements
     {
         [Key]
-        public booking_records booking_records { get; set; }
+        public int id { get; set; }
+
+        public booking_records booking_ { get; set; }
 
         [MaxLength(255)]
         public string beef { get; set; }
