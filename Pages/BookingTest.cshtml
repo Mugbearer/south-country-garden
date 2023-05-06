@@ -1,0 +1,53 @@
+﻿@page
+@model south_country_garden.Pages.BookingTestModel
+
+@{
+    ViewData["Title"] = "BookingTest";
+}
+
+<h1>Booking Test</h1>
+
+<h4>booking_records</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="booking_records.name" class="control-label"></label>
+                <input asp-for="booking_records.name" class="form-control" />
+                <span asp-validation-for="booking_records.name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="booking_records.contact_number" class="control-label"></label>
+                <input asp-for="booking_records.contact_number" class="form-control" />
+                <span asp-validation-for="booking_records.contact_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="booking_records.address" class="control-label"></label>
+                <input asp-for="booking_records.address" class="form-control" />
+                <span asp-validation-for="booking_records.address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="booking_records.email" class="control-label"></label>
+                <input asp-for="booking_records.email" class="form-control" />
+                <span asp-validation-for="booking_records.email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="booking_records.additional_message" class="control-label"></label>
+                <input asp-for="booking_records.additional_message" class="form-control" />
+                <span asp-validation-for="booking_records.additional_message" class="text-danger"></span>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
