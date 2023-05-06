@@ -14,7 +14,6 @@ namespace south_country_garden.Pages
 
         public void OnGet()
         {
-
         }
     }
 }
