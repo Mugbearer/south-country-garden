@@ -8,24 +8,35 @@
     <div class="row justify-content-center align-items-center pt-5">
         <div class="col-5 bg-white p-3">
             <form method="post">
-                <div class="mb-3">
-                    <label for="inputName" class="form-label">Company / Client Name</label>
-                    <input type="text" class="form-control" id="inputName">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="booking_records.name" class="control-label"></label>
+                    <input asp-for="booking_records.name" class="form-control" />
+                    <span asp-validation-for="booking_records.name" class="text-danger"></span>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <div class="form-group">
+                    <label asp-for="booking_records.contact_number" class="control-label"></label>
+                    <input asp-for="booking_records.contact_number" class="form-control" />
+                    <span asp-validation-for="booking_records.contact_number" class="text-danger"></span>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                <div class="form-group">
+                    <label asp-for="booking_records.address" class="control-label"></label>
+                    <input asp-for="booking_records.address" class="form-control" />
+                    <span asp-validation-for="booking_records.address" class="text-danger"></span>
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <div class="form-group">
+                    <label asp-for="booking_records.email" class="control-label"></label>
+                    <input asp-for="booking_records.email" class="form-control" />
+                    <span asp-validation-for="booking_records.email" class="text-danger"></span>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label asp-for="booking_records.additional_message" class="control-label"></label>
+                    <input asp-for="booking_records.additional_message" class="form-control" />
+                    <span asp-validation-for="booking_records.additional_message" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
             </form>
         </div>
     </div>
