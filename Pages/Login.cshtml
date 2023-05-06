@@ -1,0 +1,27 @@
+﻿@page
+@model south_country_garden.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<main role="main" class="container-fluid booking-bg p-0">
+    <div class="row justify-content-center align-items-center pt-5">
+        <div class="col-5 bg-white p-3">
+            <form method="post"><!--
+                <div class="form-group">
+                    <label class="control-label"></label>
+                    <input class="form-control" />
+                    <span asp-validation-for="booking_records.name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="booking_records.contact_number" class="control-label"></label>
+                    <input asp-for="booking_records.contact_number" class="form-control" />
+                    <span asp-validation-for="booking_records.contact_number" class="text-danger"></span>
+                </div>-->
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
