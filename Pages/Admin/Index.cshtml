@@ -1,0 +1,312 @@
+﻿@page
+@model south_country_garden.Pages.Admin_Controls.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].contact_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].additional_message)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].payment_status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].booking_status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].event_title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].color_motif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].event_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].church)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].venue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].time_preparation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].pax_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].event_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].total_package)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].event_coordination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].program_hosting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].mobile_sound_system)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].lighting_system)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].catering)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].tiffany_chairs_and_tables)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].red_carpets)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].personalized_cake_layers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].photo_gallery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].table_numbers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].tarpaulin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].signature_frame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].holding_area_rooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].lcd_and_projectors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].event_extras)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].hair_and_make_up)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].giveaway)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].photo_and_video_coverage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].photo_booth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].bridal_car)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].entourage_church_flower)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].additional_stages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].beef)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].seafood)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].pork)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].chicken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].pasta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].vegetable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].rice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_records[0].dessert)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.booking_records) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contact_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.additional_message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.booking_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.color_motif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.church)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.venue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time_preparation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pax_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_package)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_coordination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.program_hosting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mobile_sound_system)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lighting_system)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.catering)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tiffany_chairs_and_tables)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.red_carpets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.personalized_cake_layers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo_gallery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.table_numbers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tarpaulin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.signature_frame)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.holding_area_rooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lcd_and_projectors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_extras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hair_and_make_up)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.giveaway)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo_and_video_coverage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo_booth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bridal_car)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.entourage_church_flower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.additional_stages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.beef)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.seafood)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pork)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.chicken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pasta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vegetable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dessert)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.booking_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.booking_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.booking_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
