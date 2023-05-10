@@ -16,7 +16,7 @@ namespace south_country_garden.Pages.Admin_Controls
 
         public IndexModel(south_country_garden.Data.ApplicationDbContext context)
         {
-            _context = context;
+            _context = context;//hello world
         }
 
         public IList<booking_records> booking_records { get;set; } = default!;
