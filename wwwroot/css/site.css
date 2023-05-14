@@ -1,10 +1,7 @@
 body {
     color: #202124;
     line-height: 1.5em;
-}
-
-main {
-    min-height: 50vh;
+    min-height: 100vh;
 }
 
 .scg-logo {

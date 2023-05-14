@@ -13,65 +13,29 @@ namespace south_country_garden.Pages.Admin_Controls
 {
     public class EditModel : PageModel
     {
-        private readonly south_country_garden.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
+        [BindProperty]
+        public booking_records booking_records { get; set; }
 
-        public EditModel(south_country_garden.Data.ApplicationDbContext context)
+        public EditModel(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-        public booking_records booking_records { get; set; } = default!;
-
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public void OnGet(int id)
         {
-            if (id == null || _context.booking_records == null)
-            {
-                return NotFound();
-            }
-
-            var booking_records =  await _context.booking_records.FirstOrDefaultAsync(m => m.booking_id == id);
-            if (booking_records == null)
-            {
-                return NotFound();
-            }
-            booking_records = booking_records;
-            return Page();
+            booking_records = _context.booking_records.Find(id);
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPost()
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return Page();
-            }
-
-            _context.Attach(booking_records).State = EntityState.Modified;
-
-            try
-            {
+                _context.booking_records.Update(booking_records);
                 await _context.SaveChangesAsync();
+                return RedirectToPage("Index");
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!booking_recordsExists(booking_records.booking_id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
-        }
-
-        private bool booking_recordsExists(int id)
-        {
-          return (_context.booking_records?.Any(e => e.booking_id == id)).GetValueOrDefault();
+            return Page();
         }
     }
 }

@@ -2,55 +2,57 @@
 @model south_country_garden.Pages.Admin_Controls.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Admin";
 }
 
-<main role="main" class="container-fluid p-0">
-    <div class="container p-3">
-        <div class="row pt-4">
-            <div class="col-6">
-                <h1 class="text-primary">Booking Records</h1>
-            </div>
-            <div class="col-6 text-end">
-                <a asp-page="create" class="btn btn-primary">
-                    <i class="bi bi-plus-square"></i> &nbsp; Create New Category
-                </a>
-            </div>
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="text-primary">Booking Records</h1>
         </div>
-
-        <br /><br />
-
-        <table class="table table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>
-                        Booking ID
-                    </th>
-                    <th>
-                        Name
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.booking_records)
-                {
-                    <tr>
-                        <td width="30%">@Html.DisplayFor(modelItem => item.booking_id)</td>
-                        <td width="50%">@Html.DisplayFor(modelItem => item.name)</td>
-                        <td>
-                            <div class="w-75 btn-group">
-                                <a asp-page="./Edit" asp-route-id="@item.booking_id" class="btn btn-primary mx-2">
-                                    <i class="bi bi-pencil-square"></i>
-                                </a>
-                                <a asp-page="./Delete" asp-route-id="@item.booking_id" class="btn btn-danger mx-2">
-                                    <i class="bi bi-trash-fill"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        <div class="col-6 text-end">
+            <a asp-page="create" class="btn btn-primary">
+                <i class="bi bi-plus-square"></i> &nbsp; Create New Category
+            </a>
+        </div>
     </div>
-</main>
+
+    <br /><br />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Booking ID
+                </th>
+                <th>
+                    Client / Company Name
+                </th>
+                <th>
+                    Event Date
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.booking_records)
+            {
+                <tr>
+                    <td width="15%">@Html.DisplayFor(modelItem => item.booking_id)</td>
+                    <td width="35%">@Html.DisplayFor(modelItem => item.name)</td>
+                    <td width="30%">@Html.DisplayFor(modelItem => item.event_date)</td>
+                    <td>
+                        <div class="w-75 btn-group">
+                            <a asp-page="./Edit" asp-route-id="@item.booking_id" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a asp-page="./Delete" asp-route-id="@item.booking_id" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash-fill"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
