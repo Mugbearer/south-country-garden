@@ -2,6 +2,6 @@
 {
     public class SessionVariables
     {
-        //public const string
+        public const string LogInState = "LogInState";
     }
 }
