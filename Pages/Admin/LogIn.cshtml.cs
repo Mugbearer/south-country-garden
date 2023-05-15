@@ -12,7 +12,7 @@ namespace south_country_garden.Pages.Admin
         
         public void OnGet()
         {
-            if (HttpContext.Session.GetString(SessionVariables.LogInState) == "true")
+            if (HttpContext.Session.GetString("LogInState") == null)
             {
                 RedirectToPage("Index");
             }
@@ -29,7 +29,7 @@ namespace south_country_garden.Pages.Admin
             {
                 ViewData["usernameValidate"] = "";
                 ViewData["passwordValidate"] = "";
-                HttpContext.Session.SetString(SessionVariables.LogInState, "true");
+                HttpContext.Session.SetString("LogInState", "true");
             }
             else
             {
