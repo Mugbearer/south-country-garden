@@ -10,31 +10,38 @@ namespace south_country_garden.Pages.Admin
         public string Username { get; set; }
         public string Password { get; set; }
         
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            if (HttpContext.Session.GetString("LogInState") == null)
+            if (HttpContext.Session.GetString("LogInState") == "true")
             {
-                RedirectToPage("Index");
+                return RedirectToPage("Index");
             }
             ViewData["usernameValidate"] = "";
             ViewData["passwordValidate"] = "";
+            return Page();
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            string username = Username;
-            string password = Password;
+            Username = Request.Form["username"];
+            Password = Request.Form["password"];
 
-            if (username == "example" && password == "example")
+            if (Username != "example")
+            {
+                ViewData["usernameValidate"] = "No username exists";
+                return new NoContentResult();
+            }
+            else if (Password != "example")
+            {
+                ViewData["passwordValidate"] = "Invalid password";
+                return new NoContentResult();
+            }
+            else
             {
                 ViewData["usernameValidate"] = "";
                 ViewData["passwordValidate"] = "";
                 HttpContext.Session.SetString("LogInState", "true");
-            }
-            else
-            {
-                ViewData["usernameValidate"] = "No username exists";
-                ViewData["passwordValidate"] = "Invalid password";
+                return RedirectToPage("Index");
             }
         }
     }
