@@ -5,7 +5,7 @@ using south_country_garden.Data;
 namespace south_country_garden.Pages.Admin
 {
     [BindProperties]
-    public class LogInModel : PageModel
+    public class LoginModel : PageModel
     {
         public string Username { get; set; }
         public string Password { get; set; }
