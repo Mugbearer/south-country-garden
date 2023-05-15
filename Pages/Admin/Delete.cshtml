@@ -8,305 +8,33 @@
 
 @if (HttpContext.Session.GetString("LogInState") == "true")
 {
-    <h1>Delete</h1>
-
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>booking_records</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.name)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.name)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.contact_number)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.contact_number)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.address)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.address)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.email)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.email)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.additional_message)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.additional_message)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.remarks)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.remarks)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.payment_status)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.payment_status)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.booking_status)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.booking_status)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.event_title)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.event_title)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.color_motif)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.color_motif)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.event_date)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.event_date)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.church)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.church)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.venue)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.venue)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.time_preparation)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.time_preparation)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.pax_number)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.pax_number)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.event_time)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.event_time)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.total_package)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.total_package)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.event_coordination)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.event_coordination)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.program_hosting)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.program_hosting)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.mobile_sound_system)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.mobile_sound_system)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.lighting_system)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.lighting_system)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.catering)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.catering)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.tiffany_chairs_and_tables)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.tiffany_chairs_and_tables)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.red_carpets)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.red_carpets)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.personalized_cake_layers)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.personalized_cake_layers)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.photo_gallery)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.photo_gallery)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.table_numbers)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.table_numbers)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.tarpaulin)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.tarpaulin)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.signature_frame)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.signature_frame)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.holding_area_rooms)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.holding_area_rooms)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.lcd_and_projectors)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.lcd_and_projectors)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.event_extras)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.event_extras)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.hair_and_make_up)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.hair_and_make_up)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.giveaway)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.giveaway)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.photo_and_video_coverage)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.photo_and_video_coverage)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.photo_booth)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.photo_booth)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.bridal_car)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.bridal_car)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.entourage_church_flower)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.entourage_church_flower)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.additional_stages)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.additional_stages)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.beef)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.beef)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.seafood)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.seafood)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.pork)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.pork)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.chicken)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.chicken)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.pasta)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.pasta)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.vegetable)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.vegetable)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.rice)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.rice)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.booking_records.dessert)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.booking_records.dessert)
-            </dd>
-        </dl>
-    
-        <form method="post">
-            <input type="hidden" asp-for="booking_records.booking_id" />
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
-            <a asp-page="./Index">Back to List</a>
-        </form>
-    </div>
+    <form method="post">
+        <input hidden asp-for="booking_records.booking_id" />
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary pl-3">Delete Booking Record</h2>
+                <hr />
+            </div>
+            <div class="mb-3">
+                <label asp-for="booking_records.name"></label>
+                <input asp-for="booking_records.name" disabled class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="booking_records.event_date"></label>
+                <input asp-for="booking_records.event_date" disabled class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+            <a asp-page="Index" class="btn btn-secondary" style="width:150px">Back to List</a>
+        </div>
+    </form>
 }
 else
 {
     <h1 class="text-danger text-center">UNAUTHORIZED ACCESS!</h1>
+}
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
 }
