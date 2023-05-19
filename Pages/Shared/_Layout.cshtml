@@ -13,10 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary py-0 text-purple">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-4 px-4 text-purple">
         <div class="container-fluid navbar-padding px-5">
             <a class="navbar-brand" asp-page="/Index">
-                <img class="scg-logo" src="images/scg-logo.png" alt="South Country Garden Logo" />
+                <div class="h4 text-purple">South Country Garden</div>
             </a>
             <button class="navbar-toggler"
                 type="button"
@@ -73,18 +73,24 @@
                             </ul>
                         </li>
                     }
-                    @if (true)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-page="/Admin/Index">Admin</a>
-                        </li>
-                    }
                 </ul>
-                <a class="btn btn-primary p-3" asp-page="/Booking" role="button"><i class="bi bi-pencil-square" ></i> BOOK NOW</a>
+                <div class="d-flex">
+                    @if (Context.Session.GetString("LogInState") == "true")
+                    {
+                        <div class="d-flex align-items-center mx-5">
+                            <div>
+                                <a class="nav-link active" asp-page="/Admin/Index"><i class="bi bi-shield-check"></i> Admin</a>
+                            </div>
+                        </div>
+                    }
+                    <div>
+                        <a class="btn btn-primary p-3" asp-page="/Booking" role="button"><i class="bi bi-pencil-square"></i> BOOK NOW</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container mt-5">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -98,12 +104,6 @@
                 </a>
                 <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Company, Inc</span>
             </div>
-
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-                <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-                <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-            </ul>
         </footer>
     </div>
 

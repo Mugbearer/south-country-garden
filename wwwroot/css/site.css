@@ -4,6 +4,10 @@ body {
     min-height: 100vh;
 }
 
+main {
+    min-height: 70vh;
+}
+
 .scg-logo {
     width: 140px;
 }
@@ -40,4 +44,10 @@ nav {
     color: #48487f;
     font-size: 17px;
     line-height: 1.5em;
+}
+
+.card-link.proper-underline {
+    border-bottom: 1px solid;
+    padding-bottom: 8px;
+    border-color: #48487f ;
 }
