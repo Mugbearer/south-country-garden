@@ -35,3 +35,9 @@ nav {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #48487f;
+    font-size: 17px;
+    line-height: 1.5em;
+}

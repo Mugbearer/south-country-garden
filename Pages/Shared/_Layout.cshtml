@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary py-0">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-0 text-purple">
         <div class="container-fluid navbar-padding px-5">
             <a class="navbar-brand" asp-page="/Index">
                 <img class="scg-logo" src="images/scg-logo.png" alt="South Country Garden Logo" />
@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-page="/Index">Home</a>
+                        <a class="nav-link active" aria-current="page" asp-page="/Index"><i class="bi bi-house"></i> Home</a>
                     </li>
                     <li class="nav-item">
                         <a
@@ -39,14 +39,11 @@
                             href="https://www.google.com/maps/dir//South+Country+Garden/data=!4m8!4m7!1m0!1m5!1m1!1s0x3397d85e4ff4789d:0x613139633a8ded4e!2m2!1d121.12165499999999!2d14.282105"
                             target="_blank"
                             rel="noopener noreferrer">
-                            Get Directions
+                            <i class="bi bi-geo-alt"></i> Get Directions
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="tel:+63-917-871-4811">Call Now</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" asp-page="/Booking">Book Now</a>
+                        <a class="nav-link active" href="tel:+63-917-871-4811"><i class="bi bi-telephone"></i> Call Now</a>
                     </li>
                     @if (Context.Request.Path.Value == "/") {
                         <li class="nav-item dropdown">
@@ -55,7 +52,7 @@
                                 role="button"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Navigate
+                                <i class="bi bi-menu-down"></i>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -83,6 +80,7 @@
                         </li>
                     }
                 </ul>
+                <a class="btn btn-primary p-3" asp-page="/Booking" role="button"><i class="bi bi-pencil-square" ></i> BOOK NOW</a>
             </div>
         </div>
     </nav>
