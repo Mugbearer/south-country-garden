@@ -63,3 +63,59 @@ section > h2 {
 .testimonials-links {
     
 }
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-emphasize {
+    font-weight: 700;
+    font-style: italic;
+}
+
+#gallery .container .row div {
+    background: blue;
+    height: 100px;
+    outline: solid;
+}
+
+.PWqJSb {
+    margin: 30px 0;
+}
+
+.PWqJSb:first-child {
+    position: relative;
+}
+
+.d11Ssd {
+    display: block;
+    width: 100%;
+}
+
+#gallery > .UCecQ img {
+    border: none;
+}
+
+@media (min-width: 640px) {
+    .UCecQ {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .PWqJSb {
+        flex: 0 0 48%;
+        margin: 5px 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .summary-padding {
+        padding: 0 14rem !important;
+    }
+    .PWqJSb.ZdKHsd {
+        flex: 0 0 32%;
+    }
+    .PWqJSb {
+        flex: 0 0 32%;
+    }
+}
