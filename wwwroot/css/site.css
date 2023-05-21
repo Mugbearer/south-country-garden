@@ -46,8 +46,20 @@ nav {
     line-height: 1.5em;
 }
 
-.card-link.proper-underline {
+.card-link.proper-underline, .proper-underline {
     border-bottom: 1px solid;
     padding-bottom: 8px;
     border-color: #48487f ;
+}
+
+section > h2 {
+    font-size:1.2rem
+}
+
+#testimonials i {
+    color: #FBBC04;
+}
+
+.testimonials-links {
+    
 }
