@@ -47,35 +47,42 @@ namespace south_country_garden.Pages
 
         private static void SendEmail(booking_records data)
         {
-            MailMessage clientMail = new MailMessage();
-            SmtpClient clientOne = new SmtpClient("smtp.office365.com");
-            clientMail.From = new MailAddress("kris.p.bacon2023@outlook.com", "Kris P. Bacon");
-            clientMail.To.Add(data.email);
+            try
+            {
+                MailMessage clientMail = new MailMessage();
+                SmtpClient clientOne = new SmtpClient("smtp.office365.com");
+                clientMail.From = new MailAddress("kris.p.bacon2023@outlook.com", "Kris P. Bacon");
+                clientMail.To.Add(data.email);
 
-            clientMail.Subject = "Preliminary Quote";
-            clientMail.IsBodyHtml = true;
-            clientMail.Body = $"Greetings {data.name}!" +
-                $"<br><br>Thank you for booking South Country Garden. Please expect a response soon!";
-            clientOne.EnableSsl = true;
-            clientOne.Port = 587;
-            clientOne.Credentials = new System.Net.NetworkCredential("kris.p.bacon2023@outlook.com", "SamplePassword123");
-            clientOne.Send(clientMail);
+                clientMail.Subject = "Preliminary Quote";
+                clientMail.IsBodyHtml = true;
+                clientMail.Body = $"Greetings {data.name}!" +
+                    $"<br><br>Thank you for booking South Country Garden. Please expect a response soon!";
+                clientOne.EnableSsl = true;
+                clientOne.Port = 587;
+                clientOne.Credentials = new System.Net.NetworkCredential("kris.p.bacon2023@outlook.com", "SamplePassword123");
+                clientOne.Send(clientMail);
 
-            MailMessage scgMail = new MailMessage();
-            SmtpClient clientTwo = new SmtpClient("smtp.office365.com");
-            scgMail.From = new MailAddress("kris.p.bacon2023@outlook.com", "Kris P. Bacon");
-            scgMail.To.Add("kris.p.bacon2023@outlook.com");
+                MailMessage scgMail = new MailMessage();
+                SmtpClient clientTwo = new SmtpClient("smtp.office365.com");
+                scgMail.From = new MailAddress("kris.p.bacon2023@outlook.com", "Kris P. Bacon");
+                scgMail.To.Add("kris.p.bacon2023@outlook.com");
 
-            scgMail.Subject = "New Client Booking";
-            scgMail.IsBodyHtml = true;
-            scgMail.Body = "Iformation on new client booking:<br><br>" +
-                $"<b>Full Name:</b> {data.name}<br><b>Contact Number:</b> {data.contact_number}<br>" +
-                $"<b>Email Address:</b> {data.email}<br>" +
-                $"<b>Address:</b> {data.address}<br><b>Additional Message:</b> {data.additional_message}";
-            clientTwo.EnableSsl = true;
-            clientTwo.Port = 587;
-            clientTwo.Credentials = new System.Net.NetworkCredential("kris.p.bacon2023@outlook.com", "SamplePassword123");
-            clientTwo.Send(scgMail);
+                scgMail.Subject = "New Client Booking";
+                scgMail.IsBodyHtml = true;
+                scgMail.Body = "Iformation on new client booking:<br><br>" +
+                    $"<b>Full Name:</b> {data.name}<br><b>Contact Number:</b> {data.contact_number}<br>" +
+                    $"<b>Email Address:</b> {data.email}<br>" +
+                    $"<b>Address:</b> {data.address}<br><b>Additional Message:</b> {data.additional_message}";
+                clientTwo.EnableSsl = true;
+                clientTwo.Port = 587;
+                clientTwo.Credentials = new System.Net.NetworkCredential("kris.p.bacon2023@outlook.com", "SamplePassword123");
+                clientTwo.Send(scgMail);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
