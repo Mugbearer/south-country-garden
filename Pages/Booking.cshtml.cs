@@ -32,6 +32,8 @@ namespace south_country_garden.Pages
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+            ValidateDate();
+
             if (!ModelState.IsValid || _context.booking_records == null || booking_records == null)
             {
                 return Page();
@@ -44,6 +46,13 @@ namespace south_country_garden.Pages
             SendEmail(booking_records);
             TempData["success"] = "Booked successfully!";
             return RedirectToPage("./Index");
+        }
+
+        private void ValidateDate()
+        {
+            
+            
+            //ModelState.AddModelError("Category.Name", "The DisplayOrder cannot exactly match the Name");
         }
 
         private static void SendEmail(booking_records data)
