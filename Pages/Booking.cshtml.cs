@@ -32,7 +32,7 @@ namespace south_country_garden.Pages
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            ValidateDate();
+            //ValidateDate();
 
             if (!ModelState.IsValid || _context.booking_records == null || booking_records == null)
             {
