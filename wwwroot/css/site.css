@@ -12,7 +12,7 @@ main {
     width: 140px;
 }
 
-.text-purple {
+.text-purple, .dropdown-item {
     color: #48487f;
 }
 
@@ -26,7 +26,7 @@ main {
     border: none;
 }
 
-.card-title, .card-body > .h5 {
+.card-title, .card-body > .h5, .normalize-heading {
     font-family: "Open Sans", sans-serif;
 }
 

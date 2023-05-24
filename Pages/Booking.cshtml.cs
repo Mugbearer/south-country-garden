@@ -37,11 +37,12 @@ namespace south_country_garden.Pages
                 return Page();
             }
 
+            booking_records.booking_status = "Unconfirmed";
             _context.booking_records.Add(booking_records);
             await _context.SaveChangesAsync();
 
             SendEmail(booking_records);
-
+            TempData["success"] = "Booked successfully!";
             return RedirectToPage("./Index");
         }
 

@@ -54,6 +54,7 @@ namespace south_country_garden.Model
 
         [Display(Name = "Date of Event")]
         [MaxLength(10)]
+        [Required]
         public string? event_date { get; set; }
 
         [Display(Name = "Church")]

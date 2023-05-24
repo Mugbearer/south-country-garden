@@ -38,7 +38,7 @@ namespace south_country_garden.Pages.Admin_Controls
 
             _context.booking_records.Add(booking_records);
             await _context.SaveChangesAsync();
-
+            TempData["success"] = "Booking created successfully";
             return RedirectToPage("./Index");
         }
     }

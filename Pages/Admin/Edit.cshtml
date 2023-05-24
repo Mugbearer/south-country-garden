@@ -11,7 +11,7 @@
         <input hidden asp-for="booking_records.booking_id" />
         <div class="border p-3 mt-4">
             <div class="row pb-2">
-                <h2 class="text-primary pl-3">Update Booking</h2>
+                <h2 class="text-primary pl-3 normalize-heading">Update Booking</h2>
                 <hr />
             </div>
             <div asp-validation-summary="All"></div>
@@ -52,7 +52,30 @@
             </div>
             <div class="mb-3">
                 <label asp-for="booking_records.booking_status" class="control-label"></label>
-                <input asp-for="booking_records.booking_status" class="form-control" />
+                <div class="form-check mt-2">
+                    <input asp-for="booking_records.booking_status" class="form-check-input" value="Confirmed" type="radio">
+                    <label class="form-check-label">
+                        Confirmed
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="booking_records.booking_status" class="form-check-input" value="Unconfirmed" type="radio">
+                    <label class="form-check-label">
+                        Unconfirmed
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="booking_records.booking_status" class="form-check-input" value="Finished" type="radio">
+                    <label class="form-check-label">
+                        Finished
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="booking_records.booking_status" class="form-check-input" value="Terminated" type="radio">
+                    <label class="form-check-label">
+                        Terminated
+                    </label>
+                </div>
                 <span asp-validation-for="booking_records.booking_status" class="text-danger"></span>
             </div>
             <div class="mb-3">
@@ -67,7 +90,8 @@
             </div>
             <div class="mb-3">
                 <label asp-for="booking_records.event_date" class="control-label"></label>
-                <input asp-for="booking_records.event_date" class="form-control" type="date" />
+                <input asp-for="booking_records.event_date" class="form-control" type="date" required />
+                <div class="form-text">You can change this later</div>
                 <span asp-validation-for="booking_records.event_date" class="text-danger"></span>
             </div>
             <div class="mb-3">

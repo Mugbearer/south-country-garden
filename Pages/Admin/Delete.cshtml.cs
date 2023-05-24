@@ -12,52 +12,31 @@ namespace south_country_garden.Pages.Admin_Controls
 {
     public class DeleteModel : PageModel
     {
-        private readonly south_country_garden.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
+        [BindProperty]
+        public booking_records booking_records { get; set; }
 
-        public DeleteModel(south_country_garden.Data.ApplicationDbContext context)
+        public DeleteModel(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-      public booking_records booking_records { get; set; } = default!;
-
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public void OnGet(int id)
         {
-            if (id == null || _context.booking_records == null)
-            {
-                return NotFound();
-            }
-
-            var booking_records = await _context.booking_records.FirstOrDefaultAsync(m => m.booking_id == id);
-
-            if (booking_records == null)
-            {
-                return NotFound();
-            }
-            else 
-            {
-                booking_records = booking_records;
-            }
-            return Page();
+            booking_records = _context.booking_records.Find(id);
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPost()
         {
-            if (id == null || _context.booking_records == null)
+            var recordFromDb = _context.booking_records.Find(booking_records.booking_id);
+            if (recordFromDb != null)
             {
-                return NotFound();
-            }
-            var booking_records = await _context.booking_records.FindAsync(id);
-
-            if (booking_records != null)
-            {
-                booking_records = booking_records;
-                _context.booking_records.Remove(booking_records);
+                _context.booking_records.Remove(recordFromDb);
                 await _context.SaveChangesAsync();
+                TempData["success"] = "Booking deleted successfully";
+                return RedirectToPage("Index");
             }
-
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

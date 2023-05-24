@@ -12,7 +12,7 @@
         <input hidden asp-for="booking_records.booking_id" />
         <div class="border p-3 mt-4">
             <div class="row pb-2">
-                <h2 class="text-primary pl-3">Delete Booking Record</h2>
+                <h2 class="text-primary pl-3 normalize-heading">Delete Booking Record</h2>
                 <hr />
             </div>
             <div class="mb-3">
@@ -22,6 +22,10 @@
             <div class="mb-3">
                 <label asp-for="booking_records.event_date"></label>
                 <input asp-for="booking_records.event_date" disabled class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="booking_records.booking_status"></label>
+                <input asp-for="booking_records.booking_status" disabled class="form-control" />
             </div>
             <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
             <a asp-page="Index" class="btn btn-secondary" style="width:150px">Back to List</a>

@@ -33,6 +33,7 @@ namespace south_country_garden.Pages.Admin_Controls
             {
                 _context.booking_records.Update(booking_records);
                 await _context.SaveChangesAsync();
+                TempData["success"] = "Booking updated successfully";
                 return RedirectToPage("Index");
             }
             return Page();
