@@ -35,13 +35,13 @@
         <div class="mb-3">
             <label asp-for="booking_records.event_date" class="control-label"></label>
             <input asp-for="booking_records.event_date" class="form-control" type="date" />
-            <div class="form-text">You can change this later</div>
+            <div class="form-text">You can change this later.</div>
             <span asp-validation-for="booking_records.event_date" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="booking_records.additional_message" class="control-label"></label>
             <textarea asp-for="booking_records.additional_message" class="form-control" rows="3" maxlength="255"></textarea>
-            <div class="form-text">You can put your other contact information (e.g. Facebook)</div>
+            <div class="form-text">You can put your other contact information. (e.g. Facebook)</div>
             <span asp-validation-for="booking_records.additional_message" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Submit</button>
