@@ -32,7 +32,7 @@ namespace south_country_garden.Pages
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            //ValidateDate();
+            ValidateDate();
 
             if (!ModelState.IsValid || _context.booking_records == null || booking_records == null)
             {
@@ -50,9 +50,12 @@ namespace south_country_garden.Pages
 
         private void ValidateDate()
         {
+            DateTime date = DateTime.ParseExact(booking_records.event_date, "yyyy-MM-dd", null);
             
-            
-            //ModelState.AddModelError("Category.Name", "The DisplayOrder cannot exactly match the Name");
+            if (date < DateTime.Today)
+            {
+                ModelState.AddModelError("booking_records.event_date", "Please book a valid date");
+            }
         }
 
         private static void SendEmail(booking_records data)
