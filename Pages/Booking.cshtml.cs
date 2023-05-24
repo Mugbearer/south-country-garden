@@ -70,7 +70,7 @@ namespace south_country_garden.Pages
 
                 scgMail.Subject = "New Client Booking";
                 scgMail.IsBodyHtml = true;
-                scgMail.Body = "Iformation on new client booking:<br><br>" +
+                scgMail.Body = "Information on new client booking:<br><br>" +
                     $"<b>Full Name:</b> {data.name}<br><b>Contact Number:</b> {data.contact_number}<br>" +
                     $"<b>Email Address:</b> {data.email}<br>" +
                     $"<b>Address:</b> {data.address}<br><b>Additional Message:</b> {data.additional_message}";
