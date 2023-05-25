@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using south_country_garden.Data;
 using south_country_garden.Model;
 
@@ -28,8 +29,6 @@ namespace south_country_garden.Pages
         [BindProperty]
         public booking_records booking_records { get; set; } = default!;
 
-
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             ValidateDate();
@@ -39,22 +38,24 @@ namespace south_country_garden.Pages
                 return Page();
             }
 
+            SendEmail(booking_records);
             booking_records.booking_status = "Unconfirmed";
             _context.booking_records.Add(booking_records);
             await _context.SaveChangesAsync();
-
-            SendEmail(booking_records);
+            
             TempData["success"] = "Booked successfully!";
             return RedirectToPage("./Index");
         }
 
         private void ValidateDate()
         {
-            DateTime date = DateTime.ParseExact(booking_records.event_date, "yyyy-MM-dd", null);
-            
-            if (date < DateTime.Today)
+            if (booking_records.event_date != null)
             {
-                ModelState.AddModelError("booking_records.event_date", "Please book a valid date");
+                DateTime date = DateTime.ParseExact(booking_records.event_date, "yyyy-MM-dd", null);
+                if (date < DateTime.Today) //prevents booking past date
+                {
+                    ModelState.AddModelError("booking_records.event_date", "Please book a valid date");
+                }
             }
         }
 
@@ -67,7 +68,7 @@ namespace south_country_garden.Pages
                 clientMail.From = new MailAddress("kris.p.bacon2023@outlook.com", "Kris P. Bacon");
                 clientMail.To.Add(data.email);
 
-                clientMail.Subject = "Preliminary Quote";
+                clientMail.Subject = "South Country Garden Booking";
                 clientMail.IsBodyHtml = true;
                 clientMail.Body = $"Greetings {data.name}!" +
                     $"<br><br>Thank you for booking South Country Garden. Please expect a response soon!";

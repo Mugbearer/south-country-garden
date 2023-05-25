@@ -27,11 +27,9 @@ namespace south_country_garden.Pages.Admin_Controls
         [BindProperty]
         public booking_records booking_records { get; set; } = default!;
         
-
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.booking_records == null || booking_records == null)
+            if (!ModelState.IsValid || _context.booking_records == null || booking_records == null)
             {
                 return Page();
             }

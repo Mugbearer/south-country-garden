@@ -28,5 +28,11 @@ namespace south_country_garden.Pages.Admin_Controls
                 booking_records = await _context.booking_records.ToListAsync();
             }
         }
+
+        public IActionResult OnPost()
+        {
+            HttpContext.Session.SetString("LogInState", "false");
+            return RedirectToPage("../Index");
+        }
     }
 }
