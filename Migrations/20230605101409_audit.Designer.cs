@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using south_country_garden.Data;
 
@@ -11,9 +12,10 @@ using south_country_garden.Data;
 namespace south_country_garden.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230605101409_audit")]
+    partial class audit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,11 +57,6 @@ namespace south_country_garden.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("username")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.HasKey("account_id");
 
                     b.ToTable("accounts");
@@ -80,9 +77,6 @@ namespace south_country_garden.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("booking_id")
-                        .HasColumnType("int");
-
                     b.Property<string>("datetime")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -90,8 +84,6 @@ namespace south_country_garden.Migrations
                     b.HasKey("audit_id");
 
                     b.HasIndex("account_id");
-
-                    b.HasIndex("booking_id");
 
                     b.ToTable("audit_trail");
                 });
@@ -307,23 +299,10 @@ namespace south_country_garden.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("south_country_garden.Model.booking_records", "booking_records")
-                        .WithMany("audit_trails")
-                        .HasForeignKey("booking_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("accounts");
-
-                    b.Navigation("booking_records");
                 });
 
             modelBuilder.Entity("south_country_garden.Model.accounts", b =>
-                {
-                    b.Navigation("audit_trails");
-                });
-
-            modelBuilder.Entity("south_country_garden.Model.booking_records", b =>
                 {
                     b.Navigation("audit_trails");
                 });

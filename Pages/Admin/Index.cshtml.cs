@@ -32,6 +32,7 @@ namespace south_country_garden.Pages.Admin_Controls
         public IActionResult OnPost()
         {
             HttpContext.Session.SetString("LogInState", "false");
+            HttpContext.Session.SetString("IsManager", "false");
             return RedirectToPage("../Index");
         }
     }

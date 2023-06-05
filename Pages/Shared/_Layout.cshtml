@@ -77,6 +77,14 @@
                     }
                 </ul>
                 <div class="d-flex">
+                    @if (Context.Session.GetString("IsManager") == "true")
+                    {
+                        <div class="d-flex align-items-center mx-5">
+                            <div>
+                                <a class="nav-link active" asp-page="/Admin/AuditTrail"><i class="bi bi-book"></i> Audit Logs</a>
+                            </div>
+                        </div>
+                    }
                     @if (Context.Session.GetString("LogInState") == "true")
                     {
                         <div class="d-flex align-items-center mx-5">

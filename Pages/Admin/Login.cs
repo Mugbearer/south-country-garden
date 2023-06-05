@@ -1,48 +1,47 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using south_country_garden.Data;
+using south_country_garden.Model;
 
 namespace south_country_garden.Pages.Admin
 {
     [BindProperties]
     public class LoginModel : PageModel
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
-        
+        [BindProperty]
+        public accounts accounts { get; set; }
+
+        private readonly south_country_garden.Data.ApplicationDbContext _context;
+
+        public LoginModel(south_country_garden.Data.ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult OnGet()
         {
             if (HttpContext.Session.GetString("LogInState") == "true")
             {
                 return RedirectToPage("Index");
             }
-            ViewData["usernameValidate"] = "";
-            ViewData["passwordValidate"] = "";
             return Page();
         }
 
         public IActionResult OnPost()
         {
-            Username = Request.Form["username"];
-            Password = Request.Form["password"];
+            accounts user = _context.accounts.FirstOrDefault(u => u.username == accounts.username && u.password == accounts.password);
 
-            if (Username != "example")
+            if (user == null)
             {
-                ViewData["usernameValidate"] = "No username exists";
-                return new NoContentResult();
+                ModelState.AddModelError("accounts.password", "Invalid");
+                return Page();
             }
-            else if (Password != "example")
-            {
-                ViewData["passwordValidate"] = "Invalid password";
-                return new NoContentResult();
-            }
-            else
-            {
-                ViewData["usernameValidate"] = "";
-                ViewData["passwordValidate"] = "";
-                HttpContext.Session.SetString("LogInState", "true");
-                return RedirectToPage("Index");
-            }
+
+            HttpContext.Session.SetString("LogInState", "true");
+            HttpContext.Session.SetString("IsManager", user.is_manager);
+            HttpContext.Session.SetString("AccountID", user.account_id.ToString());
+
+            return RedirectToPage("Index");
         }
     }
 }

@@ -26,7 +26,9 @@ namespace south_country_garden.Pages.Admin_Controls
 
         [BindProperty]
         public booking_records booking_records { get; set; } = default!;
-        
+
+        public audit_trail audit_trail { get; set; }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid || _context.booking_records == null || booking_records == null)
@@ -34,7 +36,14 @@ namespace south_country_garden.Pages.Admin_Controls
                 return Page();
             }
 
+            audit_trail = new audit_trail();
+            audit_trail.account_id = Convert.ToInt32(HttpContext.Session.GetString("AccountID"));
+            audit_trail.booking_id = booking_records.booking_id;
+            audit_trail.datetime = DateTime.Now.ToString();
+            audit_trail.action = "Create Record";
+
             _context.booking_records.Add(booking_records);
+            _context.audit_trail.Add(audit_trail);
             await _context.SaveChangesAsync();
             TempData["success"] = "Booking created successfully";
             return RedirectToPage("./Index");

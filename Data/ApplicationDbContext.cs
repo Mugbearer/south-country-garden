@@ -13,5 +13,9 @@ namespace south_country_garden.Data
         }
         
         public DbSet<booking_records> booking_records { get; set; }
+
+        public DbSet<accounts> accounts { get; set; }
+
+        public DbSet<audit_trail> audit_trail { get; set; }
     }
 }

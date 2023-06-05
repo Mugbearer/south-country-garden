@@ -200,5 +200,7 @@ namespace south_country_garden.Model
         [Display(Name = "Dessert")]
         [MaxLength(255)]
         public string? dessert { get; set; }
+
+        public ICollection<audit_trail> audit_trails { get; } = new List<audit_trail>();
     }
 }
