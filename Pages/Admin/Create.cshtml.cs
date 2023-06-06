@@ -41,10 +41,13 @@ namespace south_country_garden.Pages.Admin_Controls
 
             int bookingId = booking_records.booking_id;
 
+            TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("China Standard Time");
+            DateTime currentDateTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZone);
+
             audit_trail = new audit_trail();
             audit_trail.account_id = Convert.ToInt32(HttpContext.Session.GetString("AccountID"));
             audit_trail.booking_id = bookingId;
-            audit_trail.datetime = DateTime.Now.ToString();
+            audit_trail.datetime = currentDateTime.ToString();
             audit_trail.action = "Create Record";
 
             _context.audit_trail.Add(audit_trail);

@@ -27,6 +27,7 @@ namespace south_country_garden.Pages.Admin_Controls
             {
                 booking_records = await _context.booking_records.ToListAsync();
             }
+            Console.WriteLine("hello");
         }
 
         public IActionResult OnPost()

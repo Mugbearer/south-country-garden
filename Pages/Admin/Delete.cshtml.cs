@@ -34,14 +34,16 @@ namespace south_country_garden.Pages.Admin_Controls
             var recordFromDb = _context.booking_records.Find(booking_records.booking_id);
             if (recordFromDb != null)
             {
-                recordFromDb.booking_status = "Deleted";
-                await _context.SaveChangesAsync();
+                TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("China Standard Time");
+                DateTime currentDateTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZone);
 
                 audit_trail = new audit_trail();
                 audit_trail.account_id = Convert.ToInt32(HttpContext.Session.GetString("AccountID"));
                 audit_trail.booking_id = booking_records.booking_id;
-                audit_trail.datetime = DateTime.Now.ToString();
+                audit_trail.datetime = currentDateTime.ToString();
                 audit_trail.action = "Delete Record";
+
+                recordFromDb.booking_status = "Deleted";
 
                 _context.audit_trail.Add(audit_trail);
                 await _context.SaveChangesAsync();

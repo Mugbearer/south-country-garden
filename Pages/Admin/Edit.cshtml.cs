@@ -36,10 +36,13 @@ namespace south_country_garden.Pages.Admin_Controls
 
             if (ModelState.IsValid)
             {
+                TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("China Standard Time");
+                DateTime currentDateTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZone);
+
                 audit_trail = new audit_trail();
                 audit_trail.account_id = Convert.ToInt32(HttpContext.Session.GetString("AccountID"));
                 audit_trail.booking_id = booking_records.booking_id;
-                audit_trail.datetime = DateTime.Now.ToString();
+                audit_trail.datetime = currentDateTime.ToString();
                 audit_trail.action = "Edit Record";
 
                 _context.booking_records.Update(booking_records);
