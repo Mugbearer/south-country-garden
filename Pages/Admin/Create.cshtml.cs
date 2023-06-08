@@ -31,6 +31,8 @@ namespace south_country_garden.Pages.Admin_Controls
 
         public async Task<IActionResult> OnPostAsync()
         {
+            ValidateDate();
+
             if (!ModelState.IsValid || _context.booking_records == null || booking_records == null)
             {
                 return Page();
@@ -55,6 +57,22 @@ namespace south_country_garden.Pages.Admin_Controls
 
             TempData["success"] = "Booking created successfully";
             return RedirectToPage("./Index");
+        }
+
+        private void ValidateDate()
+        {
+            if (booking_records.event_date != null)
+            {
+                DateTime date = DateTime.ParseExact(booking_records.event_date, "yyyy-MM-dd", null);
+                if (date < DateTime.Today) //prevents booking past date
+                {
+                    ModelState.AddModelError("booking_records.event_date", "Please book a valid date");
+                }
+                else if (date < DateTime.Today.AddDays(30))
+                {
+                    ModelState.AddModelError("booking_records.event_date", "Bookings must be made at least a month in advance");
+                }
+            }
         }
     }
 }

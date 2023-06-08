@@ -14,7 +14,6 @@
                 <h2 class="text-primary pl-3 normalize-heading">Update Booking</h2>
                 <hr />
             </div>
-            <div asp-validation-summary="All"></div>
             <div class="mb-3">
                 <label asp-for="booking_records.name" class="control-label" required></label>
                 <input asp-for="booking_records.name" class="form-control" />
@@ -90,7 +89,7 @@
             </div>
             <div class="mb-3">
                 <label asp-for="booking_records.event_date" class="control-label"></label>
-                <input asp-for="booking_records.event_date" class="form-control" type="date" required />
+                <input asp-for="booking_records.event_date" class="form-control" type="date" />
                 <div class="form-text">You can change this later</div>
                 <span asp-validation-for="booking_records.event_date" class="text-danger"></span>
             </div>
