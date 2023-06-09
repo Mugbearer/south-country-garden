@@ -68,10 +68,6 @@ namespace south_country_garden.Pages.Admin_Controls
                 {
                     ModelState.AddModelError("booking_records.event_date", "Please book a valid date");
                 }
-                else if (date < DateTime.Today.AddDays(30))
-                {
-                    ModelState.AddModelError("booking_records.event_date", "Bookings must be made at least a month in advance");
-                }
             }
         }
     }
